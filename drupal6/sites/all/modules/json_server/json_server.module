@@ -34,7 +34,8 @@ function json_server_server() {
 if (!isset($_POST)) {
   return drupal_to_js(array('#error' => TRUE, '#data' => "JSON server accepts POST requests only."));
 }
-  
+  //$_POST = json_decode($_POST['data']);
+  //$_POST = (array)$_POST;
   $methods = services_get_all();
   services_strip_hashes($methods);
   $request = drupal_parse_json($_POST['method']);
